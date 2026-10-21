@@ -27,7 +27,7 @@
         }   
     </style>
     <p>
-  Hora actual en España: 
+        Hora actual en España:
   <time id="reloj-espana" datetime=""></time>
 </p>
 
@@ -36,7 +36,7 @@
     const elementoTime = document.getElementById('reloj-espana');
     const ahora = new Date();
 
-    // 1. Obtener la hora formateada para que la lea el usuario (Legible)
+    
     const opcionesUsuario = {
       timeZone: 'Europe/Madrid',
       hour: '2-digit',
@@ -46,24 +46,22 @@
     };
     const horaLegible = ahora.toLocaleTimeString('es-ES', opcionesUsuario);
 
-    // 2. Obtener la fecha y hora exacta para el atributo datetime (Máquina)
-    // Usamos 'sv-SE' (Suecia) porque genera el formato ISO de forma limpia (AAAA-MM-DD HH:MM:SS)
+    
     const opcionesAtributo = { timeZone: 'Europe/Madrid', hour12: false };
     const fechaISO = ahora.toLocaleDateString('sv-SE', opcionesAtributo);
     const horaISO = ahora.toLocaleTimeString('sv-SE', opcionesAtributo);
+ 
     
-    // El formato ISO requiere una 'T' separando la fecha y la hora
     const datetimeCompleto = `${fechaISO}T${horaISO}`;
 
-    // 3. Inyectar los datos en la etiqueta HTML
+    
     elementoTime.textContent = horaLegible;
     elementoTime.setAttribute('datetime', datetimeCompleto);
-  }
-
-  // Ejecutar la función inmediatamente al cargar la página
+ 
+    }
   actualizarReloj();
 
-  // Actualizar el reloj cada 1 segundo (1000 milisegundos)
+ 
   setInterval(actualizarReloj, 1000);
 </script>
 

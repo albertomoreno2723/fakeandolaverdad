@@ -4,6 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fakeando la verdad/Tipos de fake news</title>
+    <p>
+        Hora actual en España:
+  <time id="reloj-espana" datetime=""></time>
+</p>
+
+<script>
+  function actualizarReloj() {
+    const elementoTime = document.getElementById('reloj-espana');
+    const ahora = new Date();
+
+
+    const opcionesUsuario = {
+      timeZone: 'Europe/Madrid',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    };
+    const horaLegible = ahora.toLocaleTimeString('es-ES', opcionesUsuario);
+
+    const opcionesAtributo = { timeZone: 'Europe/Madrid', hour12: false };
+    const fechaISO = ahora.toLocaleDateString('sv-SE', opcionesAtributo);
+    const horaISO = ahora.toLocaleTimeString('sv-SE', opcionesAtributo);
+    
+  
+    const datetimeCompleto = `${fechaISO}T${horaISO}`;
+
+    elementoTime.textContent = horaLegible;
+    elementoTime.setAttribute('datetime', datetimeCompleto);
+  }
+
+  actualizarReloj();
+
+  setInterval(actualizarReloj, 1000);
+</script>
+
 </head>
 <body>
     <h1>Tipos de fake news</h1>
