@@ -1,64 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fakeando la verdad/Tipos de fake news</title>
-    <p>
-        Hora actual en España:
-  <time id="reloj-espana" datetime=""></time>
-</p>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fakeando la verdad/Tipos de fake news</title>
+  <p>Hora actual en España:<time id="reloj-espana" datetime="00:00:00">00:00:00</time></p>
 
-<script>
-  function actualizarReloj() {
-    const elementoTime = document.getElementById('reloj-espana');
-    const ahora = new Date();
+ <script>
+ function actualizarReloj() {
+  const elementoTime = document.getElementById('reloj-espana');
+  const ahora = new Date();
+  const opcionesUsuario = {
+    timeZone: 'Europe/Madrid',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  };
+  const horaLegible = ahora.toLocaleTimeString('es-ES', opcionesUsuario);
+  const opcionesAtributo = { timeZone: 'Europe/Madrid', hour12: false };
+  const fechaISO = ahora.toLocaleDateString('sv-SE', opcionesAtributo);
+  const horaISO = ahora.toLocaleTimeString('sv-SE', opcionesAtributo);
+  const datetimeCompleto = `${fechaISO}T${horaISO}`;
+  elementoTime.textContent = horaLegible;
+  elementoTime.setAttribute('datetime', datetimeCompleto);
+ }
+ actualizarReloj();
+ setInterval(actualizarReloj, 1000);
+ </script>
 
 
-    const opcionesUsuario = {
-      timeZone: 'Europe/Madrid',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false
-    };
-    const horaLegible = ahora.toLocaleTimeString('es-ES', opcionesUsuario);
+  <h1>Tipos de fake news</h1>
+  <p>A continuación puede ver un listado de todos los tipos de fake news que existen para que usted pueda identificarlas facilmente</p>
+  <ul>
+    <li><h2>Sátira o parodia</h2> (Contenido humorístico que no pretende causar daño ni engañar, pero puede confundir)</li>
+    <li><h2>Conexión falsa</h2> (Ocurre cuando los titulares, imágenes o leyendas no coinciden con el cuerpo de la noticia)</li>
+    <li><h2>Contenido engañoso</h2> (Uso sesgado o parcial de información real para incriminar a una persona, institución o enmarcar un tema de forma perjudicial)</li>
+    <li><h2>Contexto falso</h2> (Cuando el contenido es auténtico pero se difunde con información de fondo errónea)</li>
+    <li><h2>Contenido impostor</h2> (Suplantación directa de fuentes genuinas)</li>
+    <li><h2>Contenido manipulado</h2> (Información o imágenes verdaderas son alteradas deliberadamente para engañar)</li>
+    <li><h2>Contenido fabricado</h2> (Nivel más dañino de desinformación/Contenido 100% falso, diseñado exclusivamente para engañar y causar perjuicio)</li>
+  </ul>
+  <br>
+  <nav><a href="index.html">Volver a la página de inicio</a></nav>
+  <br>
+  <nav><a href="noticiasactuaidad.html">Noticias</a></nav>
+  <br>
+  <p>Contacta con nosotros si tienes información sobre noticias falsas que quieras verificar</p>
+  <h2>X : @FAKEANDOLAVERDAD INSTAGRAM : @FAKEANDOLAVERDAD TIKTOK : @FAKEANDOLAVERDAD </h2>
 
-    const opcionesAtributo = { timeZone: 'Europe/Madrid', hour12: false };
-    const fechaISO = ahora.toLocaleDateString('sv-SE', opcionesAtributo);
-    const horaISO = ahora.toLocaleTimeString('sv-SE', opcionesAtributo);
-    
-  
-    const datetimeCompleto = `${fechaISO}T${horaISO}`;
-
-    elementoTime.textContent = horaLegible;
-    elementoTime.setAttribute('datetime', datetimeCompleto);
-  }
-
-  actualizarReloj();
-
-  setInterval(actualizarReloj, 1000);
-</script>
-
-</head>
-<body>
-    <h1>Tipos de fake news</h1>
-    <p>A continuación puede ver un listado de todos los tipos de fake news que existen para que usted pueda identificarlas facilmente</p>
-    <ul>
-        <h2><li>Sátira o parodia</h2> (Contenido humorístico que no pretende causar daño ni engañar, pero puede confundir)</li>
-        <h2><li>Conexión falsa</h2> (Ocurre cuando los titulares, imágenes o leyendas no coinciden con el cuerpo de la noticia)</li>
-        <h2><li>Contenido engañoso</h2> (Uso sesgado o parcial de información real para incriminar a una persona, institución o enmarcar un tema de forma perjudicial)</li>
-        <h2><li>Contexto falso</h2> (Cuando el contenido es auténtico pero se difunde con información de fondo errónea)</li>
-        <h2><li>Contenido impostor</h2> (Suplantación directa de fuentes genuinas)</li>
-        <h2><li>Contenido manipulado</h2> (Información o imágenes verdaderas son alteradas deliberadamente para engañar)</li>
-        <h2><li>Contenido fabricado</h2> (Nivel más dañino de desinformación/Contenido 100% falso, diseñado exclusivamente para engañar y causar perjuicio)</li>
-    </ul>
-    <br>
-    <nav><a href="index.html">Volver a la página de inicio</a></nav>
-    <br>
-    <nav><a href="noticiasactuaidad.html">Noticias</a></nav>
-    <br>
-    <p>Contacta con nosotros si tienes información sobre noticias falsas que quieras verificar</p>
-    <h2>X : @FAKEANDOLAVERDAD INSTAGRAM : @FAKEANDOLAVERDAD TIKTOK : @FAKEANDOLAVERDAD </h2>
-</body>
 </html>
