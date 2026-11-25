@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'MiNuevaFuente';
+  src: url('../fuentes/ContrailOne-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'MiNuevaFuente', sans-serif;
+}
